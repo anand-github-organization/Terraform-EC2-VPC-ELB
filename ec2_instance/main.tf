@@ -162,8 +162,17 @@ resource "aws_security_group" "elb" {
   }
 }
 
-resource "aws_route53_zone" "zone" {
-  name = "cloudzenix.online"
+
+resource "aws_route53_record" "www" {
+  zone_id = "Z0047012345SPV29LHM87"
+  name    = "karthik.cloudzenix.online"
+  type    = "A"
+
+  alias {
+    name                   = aws_lb.elb_anand1.dns_name
+    zone_id                = aws_lb.elb_anand1.zone_id
+    evaluate_target_health = true
+  }
 }
 
 # resource "aws_route53_record" "zone-1" {
