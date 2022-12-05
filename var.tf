@@ -53,4 +53,14 @@ variable "tags" {
   type        = string
   default     = "vpc-custom-demo"
 }
+variable "access_key"
+  type = string
+  description = "aws access_key"
+  default = ""
+}
+variable "secret_key"
+  type = string
+  description = "aws access_key"
+  default = ""
+}
 
